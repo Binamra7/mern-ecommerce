@@ -1,3 +1,7 @@
+*{
+  border:1px solid red !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -45,4 +49,9 @@ p{
 }
 .btn {
   width:200px;
-  }
+}
+input {
+  box-shadow: none !important;
+  margin-top:10px !important;
+  border: 1px solid black !important;
+}
