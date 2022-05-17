@@ -1,13 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../actions/userActions";
 
 export default function Navbar() {
 	const cartReducer = useSelector((state) => state.cartReducer);
 	const dispatch = useDispatch();
 	const { cartItems } = cartReducer;
+
+	const currentUser = JSON.parse(localStorage.getItem("currentUser") || null);
 	return (
 		<div>
-			<nav className="navbar navbar-expand-lg ">
+			<nav className="navbar navbar-expand-lg">
 				<a className="navbar-brand" href="/">
 					Sheyshop
 				</a>
@@ -23,19 +26,53 @@ export default function Navbar() {
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
-					<ul className="navbar-nav ml-auto">
-						<li className="nav-item">
-							<a className="nav-link" href="/login">
-								Login
-							</a>
-						</li>
+					<div className="navbar-nav ml-auto">
+						{currentUser ? (
+							<div className="dropdown">
+								<button
+									className="btn btn-dark dropdown-toggle"
+									type="button"
+									id="dropdownMenuButton"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									{currentUser.name}
+								</button>
+								<div
+									className="dropdown-menu"
+									aria-labelledby="dropdownMenuButton"
+								>
+									<a className="dropdown-item" href="/profile">
+										Profile
+									</a>
+									<a className="dropdown-item" href="/orders">
+										Orders
+									</a>
+									<button
+										onClick={() => {
+											dispatch(logoutUser());
+										}}
+										className="dropdown-item"
+									>
+										Logout
+									</button>
+								</div>
+							</div>
+						) : (
+							<li className="nav-item">
+								<a className="nav-link" href="/login">
+									Login
+								</a>
+							</li>
+						)}
 						<li className="nav-item">
 							<a className="nav-link" href="/cart">
 								<i className="fas fa-shopping-cart"></i>
 								{cartItems.length}
 							</a>
 						</li>
-					</ul>
+					</div>
 				</div>
 			</nav>
 		</div>

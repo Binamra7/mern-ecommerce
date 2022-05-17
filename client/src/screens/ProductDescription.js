@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 const ProductDescription = () => {
 	const productId = useParams().id;
@@ -16,6 +18,7 @@ const ProductDescription = () => {
 	useEffect(() => {
 		dispatch(getProductById(productId));
 	}, []);
+	//ignore the above warning
 
 	const addItemToCart = () => {
 		dispatch(addToCart(product, quantity));
@@ -24,9 +27,9 @@ const ProductDescription = () => {
 	return (
 		<div>
 			{loading ? (
-				<h1>Loading...</h1>
+				<Loader />
 			) : error ? (
-				<h1>Something went wrong</h1>
+				<Error error="Could not load product" />
 			) : (
 				<div className="row mt-5">
 					<div className="col-md-6">

@@ -1,6 +1,6 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, deleteFromCart } from "../actions/cartActions";
+import { addToCart, /*deleteFromCart*/ } from "../actions/cartActions";
 
 const CartScreen = () => {
 	const dispatch = useDispatch();

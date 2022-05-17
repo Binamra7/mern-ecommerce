@@ -8,7 +8,9 @@ const Product = ({ product }) => {
 	return (
 		<div>
 			<Link style={{ textDecoration: "none" }} to={`product/${product._id}`}>
-				<img src={product.image} className="img-fluid" alt="Product" />
+				<div className="text-center">
+					<img src={product.image} className="img-fluid" alt="Product" />
+				</div>
 				<h1>{product.name}</h1>
 				<Rating
 					initialRating={product.rating}

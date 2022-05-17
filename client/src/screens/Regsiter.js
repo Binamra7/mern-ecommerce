@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerNewUser } from "../actions/userActions";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
+import Success from "../components/Success";
 
 const Register = () => {
 	const dispatch = useDispatch();
+	const registerReducerState = useSelector((state) => state.registerReducer);
+	const { error, loading, success } = registerReducerState;
 
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -30,45 +35,56 @@ const Register = () => {
 				<div className="col-md-5 p-3" style={{ marginTop: "100px" }}>
 					<div className="div">
 						<h2 className="text-center m-3">Register</h2>
-						<form onSubmit={handleRegister}>
-							<input
-								required
-								type="text"
-								className="form-control"
-								placeholder="Name"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							/>
-							<input
-								required
-								type="email"
-								className="form-control"
-								placeholder="Email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
+						{success && <Success success="User registered successfully" />}
+						{loading ? (
+							<Loader />
+						) : (
+							<>
+								<form onSubmit={handleRegister}>
+									<input
+										required
+										type="text"
+										className="form-control"
+										placeholder="Name"
+										value={name}
+										onChange={(e) => setName(e.target.value)}
+									/>
+									<input
+										required
+										type="email"
+										className="form-control"
+										placeholder="Email"
+										value={email}
+										onChange={(e) => setEmail(e.target.value)}
+									/>
 
-							<input
-								required
-								type="password"
-								className="form-control"
-								placeholder="Password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-							/>
+									<input
+										required
+										type="password"
+										className="form-control"
+										placeholder="Password"
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+									/>
 
-							<input
-								required
-								type="password"
-								className="form-control"
-								placeholder="Confirm Password"
-								value={cpassword}
-								onChange={(e) => setCpassword(e.target.value)}
-							/>
-							<button type="submit" className="btn btn-primary btn-block mt-3">
-								Register
-							</button>
-						</form>
+									<input
+										required
+										type="password"
+										className="form-control"
+										placeholder="Confirm Password"
+										value={cpassword}
+										onChange={(e) => setCpassword(e.target.value)}
+									/>
+									<button
+										type="submit"
+										className="btn btn-primary btn-block mt-3"
+									>
+										Register
+									</button>
+								</form>
+							</>
+						)}
+						{error && <Error error="Email is already registered" />}
 					</div>
 				</div>
 			</div>

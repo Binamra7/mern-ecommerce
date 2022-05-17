@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Product from "../components/Product";
 import { useDispatch, useSelector } from "react-redux";
 import getAllProducts from "../actions/productActions";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 export default function Homescreen() {
 	const dispatch = useDispatch();
@@ -15,9 +17,9 @@ export default function Homescreen() {
 		<div>
 			<div className="row justify-content-center">
 				{loading ? (
-					<h1>Loading...</h1>
+					<Loader />
 				) : error ? (
-					<h1>Something went wrong</h1>
+					<Error error="Something went wrong..." />
 				) : (
 					products.length > 0 &&
 					products.map((product) => {

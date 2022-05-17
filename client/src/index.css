@@ -1,6 +1,6 @@
-*{
+/* *{
   border:1px solid red !important;
-}
+} */
 
 body {
   margin: 0;
@@ -40,6 +40,7 @@ h2{
 
 .img-fluid {
   height: 200px !important;
+  text-align: center !important;
 }
 .big-img {
   height:300px !important;
