@@ -36,4 +36,41 @@ export const getProductById = (productId) => (dispatch) => {
 		});
 };
 
+export const filterProducts = (searchKey, sort, category) => (dispatch) => {
+	let filteredProducts = [];
+	dispatch({ type: "PRODUCTS_LOADING" });
+	axios
+		.get("/api/products")
+		.then((res) => {
+			filteredProducts = res.data;
+
+			if (searchKey) {
+				filteredProducts = res.data.filter((product) => {
+					return product.name.toLowerCase().includes(searchKey);
+				});
+			}
+			if (sort !== "popular") {
+				if (sort === "htl") {
+					filteredProducts = res.data.sort((a, b) => {
+						return -a.price + b.price;
+					});
+				} else {
+					filteredProducts = res.data.sort((a, b) => {
+						return a.price - b.price;
+					});
+				}
+			}
+			if (category !== "all") {
+				filteredProducts = res.data.filter((product) => {
+					return product.category.toLowerCase().includes(category);
+				});
+			}
+			dispatch({ type: "PRODUCTS_FETCHED", payload: filteredProducts });
+		})
+		.catch((err) => {
+			console.error(err.message);
+			dispatch({ type: "PRODUCTS_FETCH_ERROR" });
+		});
+};
+
 export default getAllProducts;

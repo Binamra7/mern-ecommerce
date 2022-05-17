@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { filterProducts } from "../actions/productActions";
+import { useDispatch } from "react-redux";
 
 export default function Filter() {
+	const dispatch = useDispatch();
 	const [searchKey, setSearchKey] = useState("");
 	const [sort, setSort] = useState("popular");
 	const [category, setCategory] = useState("all");
@@ -36,12 +39,19 @@ export default function Filter() {
 						className="form-control"
 					>
 						<option value="games">Games</option>
-						<option value="clothing">Clothing</option>
-						<option value="electronics">Electoronics</option>
+						<option value="fashion">Fashion</option>
+						<option value="mobiles">Mobiles</option>
 					</select>
 				</div>
 				<div className="col-md-2 mt-4 ml-2">
-					<button className="btn btn-dark">Search</button>
+					<button
+						onClick={() => {
+							dispatch(filterProducts(searchKey, sort, category));
+						}}
+						className="btn btn-dark"
+					>
+						Search
+					</button>
 				</div>
 			</div>
 		</div>
