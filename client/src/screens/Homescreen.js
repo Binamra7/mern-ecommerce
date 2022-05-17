@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import getAllProducts from "../actions/productActions";
 
 export default function Homescreen() {
-	const [product, setProduct] = useState([]);
 	const dispatch = useDispatch();
 	const getAllProductsState = useSelector((state) => state.productReducer);
 	const { loading, products, error } = getAllProductsState;

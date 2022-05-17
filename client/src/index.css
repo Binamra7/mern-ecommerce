@@ -29,6 +29,11 @@ h1{
   text-decoration: none !important;
 }
 
+h2{
+  font-size:25px !important;
+  font-weight:bold Im !important;
+}
+
 .img-fluid {
   height: 200px !important;
 }
@@ -38,3 +43,6 @@ h1{
 p{
   text-align: left !important;
 }
+.btn {
+  width:200px;
+  }
