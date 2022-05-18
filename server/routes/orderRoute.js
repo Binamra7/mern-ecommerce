@@ -21,7 +21,6 @@ router.post("/placeorder", async (req, res) => {
 		}
 	);
 	if (payment) {
-		res.send("Payment Successful");
 		const order = new Order({
 			userId: currentUser._id,
 			name: currentUser.name,

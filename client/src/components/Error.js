@@ -5,7 +5,7 @@ const Error = ({ error }) => {
 		<div
 			className="alert alert-danger mt-5 text-center ml-auto"
 			style={{
-				width: "50%",
+				width: "100%",
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "center",

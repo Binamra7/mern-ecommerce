@@ -5,7 +5,7 @@ const Success = ({ success }) => {
 		<div
 			className="alert alert-success mt-5 text-center ml-auto"
 			style={{
-				width: "50%",
+				width: "100%",
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "center",

@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart /*deleteFromCart*/ } from "../actions/cartActions";
+import { addToCart, deleteFromCart } from "../actions/cartActions";
 import Checkout from "../components/Checkout";
 
 const CartScreen = () => {
@@ -57,7 +57,8 @@ const CartScreen = () => {
 											<i
 												className="fa fa-trash"
 												onClick={() =>
-													dispatch({ type: "DELETE_FROM_CART", payload: item })
+													// dispatch({ type: "DELETE_FROM_CART", payload: item })
+													dispatch(deleteFromCart(item))
 												}
 											></i>
 										</tr>
@@ -69,7 +70,7 @@ const CartScreen = () => {
 					<hr />
 					<h2 className="text-center">Sub Total: {subTotal}</h2>
 					<hr />
-					<Checkout amount={subTotal}/>
+					<Checkout amount={subTotal} />
 				</div>
 			</div>
 		</div>
