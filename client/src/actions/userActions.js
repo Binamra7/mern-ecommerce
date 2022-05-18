@@ -36,3 +36,18 @@ export const logoutUser = () => (dispatch) => {
 	dispatch({ type: "USER_LOGOUT" });
 	window.location.href = "/login";
 };
+
+export const updateUser= (userid,updatedUser) => (dispatch) => {
+	dispatch({ type: "USER_UPDATE_REQUEST" });
+
+	axios
+		.post("http://localhost:5000/api/user/update", {updatedUser,userid})
+		.then((res) => {
+			dispatch({ type: "USER_UPDATE_SUCCESS" });
+			console.log(res);
+		})
+		.catch((err) => {
+			console.error(err);
+			dispatch({ type: "USER_UPDATE_FAIL", payload: err });
+		});
+};

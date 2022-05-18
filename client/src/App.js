@@ -9,6 +9,7 @@ import Register from "./screens/Regsiter";
 import Login from "./screens/Login";
 import Order from "./screens/Orders";
 import OrderInfo from "./screens/OrderInfo";
+import Profile from "./screens/Profile";
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 					<Route path="/register" element={<Register />} />
 					<Route path="/orders" element={<Order />} />
 					<Route path="/orderinfo/:orderid" element={<OrderInfo />} />
+					<Route path="/profile" element={<Profile />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
