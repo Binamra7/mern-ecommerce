@@ -27,7 +27,7 @@ code {
 }
 
 h1{
-  font-size:18px !important;
+  font-size:16px !important;
   text-align: left !important;
   color:black !important;
   text-decoration: none !important;
@@ -55,4 +55,10 @@ input {
   box-shadow: none !important;
   margin-top:10px !important;
   border: 1px solid black !important;
+}
+h3{
+  font-size: 16px !important;
+}
+.orderitem h1 {
+  font-size: 16px !important;
 }

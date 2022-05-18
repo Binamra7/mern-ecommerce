@@ -55,7 +55,7 @@ export const getOrderByIdReducer = (state = {}, action) => {
 			return {
 				...state,
 				loading: false,
-				orders: action.payload,
+				order: action.payload,
 			};
 		case "GET_ORDERBYID_FAILED":
 			return {
