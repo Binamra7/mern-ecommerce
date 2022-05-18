@@ -6,7 +6,8 @@ import ProductDescription from "./screens/ProductDescription";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 import Register from "./screens/Regsiter";
-import Login from "./screens/Login"
+import Login from "./screens/Login";
+import Order from "./screens/Orders";
 
 function App() {
 	return (
@@ -18,8 +19,9 @@ function App() {
 					<Route path="/" element={<Homescreen />} />
 					<Route path="/product/:id" element={<ProductDescription />} />
 					<Route path="/cart" element={<CartScreen />} />
-					<Route path="/login" element={<Login />} />	
+					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
+					<Route path="/orders" element={<Order />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

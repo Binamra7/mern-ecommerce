@@ -1,5 +1,5 @@
 import {
-	productReducer, 
+	productReducer,
 	getProductByIdReducer,
 } from "./reducers/productReducer";
 import { cartReducer } from "./reducers/cartReducer";
@@ -9,6 +9,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { registerNewUserReducer, loginReducer } from "./reducers/userReducers";
 import { placeOrderReducer } from "./reducers/orderReducer";
+import { getOrdersByUserIdReducer } from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
 	productReducer: productReducer,
@@ -16,7 +17,8 @@ const finalReducer = combineReducers({
 	cartReducer: cartReducer,
 	registerNewUserReducer: registerNewUserReducer,
 	loginReducer: loginReducer,
-	placeOrderReducer:placeOrderReducer
+	placeOrderReducer: placeOrderReducer,
+	getOrdersByUserIdReducer: getOrdersByUserIdReducer,
 });
 
 const cartItems =

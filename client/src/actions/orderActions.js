@@ -3,7 +3,7 @@ import axios from "axios";
 export const placeOrder = (token, subTotal) => (dispatch, getState) => {
 	const currentUser = getState().loginReducer.currentUser;
 	const cartItems_before = getState().cartReducer.cartItems;
-	const cartItems = new Array();
+	const cartItems = new Array(0);
 	for (let i = 0; i < cartItems_before.length; i++) {
 		let item = {
 			name: cartItems_before[i].name,
@@ -29,5 +29,21 @@ export const placeOrder = (token, subTotal) => (dispatch, getState) => {
 		.catch((err) => {
 			dispatch({ type: "PLACE_ORDER_FAILED" });
 			console.error(err);
+		});
+};
+export const getOrdersByUserId = () => (dispatch, getState) => {
+	const userid = getState().loginReducer.currentUser._id;
+	dispatch({ type: "GET_ORDERSBYUSERID_REQUEST" });
+
+	axios
+		.post("http://localhost:5000/api/orders/getordersbyuserid", {
+			userId: userid,
+		})
+		.then((res) => {
+			dispatch({ type: "GET_ORDERSBYUSERID_SUCCESS", payload: res.data });
+			console.log(res.data);
+		})
+		.catch((err) => {
+			dispatch({ type: "GET_ORDERSBYUSERID_FAILED", payload: err });
 		});
 };

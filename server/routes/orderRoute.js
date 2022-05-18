@@ -50,4 +50,16 @@ router.post("/placeorder", async (req, res) => {
 	}
 });
 
+router.post("/getordersbyuserid", (req, res) => {
+	const userId = req.body.userId;
+	Order.find({ userId: userId }, (error, orders) => {
+		if (error) {
+			console.log(error);
+			return res.status(400).json({ message: "Something went wrong" });
+		} else {
+			res.send(orders);
+		}
+	});
+});
+
 module.exports = router;
