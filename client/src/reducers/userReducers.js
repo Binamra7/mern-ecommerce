@@ -73,3 +73,51 @@ export const updateReducer = (state = {}, action) => {
 			return state;
 	}
 };
+export const getAllUsersReducer = (state = { users: [] }, action) => {
+	switch (action.type) {
+		case "GET_ALL_USERS_REQUEST":
+			return {
+				...state,
+				loading: true,
+			};
+		case "GET_ALL_USERS_SUCCESS":
+			return {
+				...state,
+				loading: false,
+				success: true,
+				users: action.payload,
+			};
+		case "GET_ALL_USERS_FAILED":
+			return {
+				...state,
+				loading: false,
+				error: "Something went wrong",
+			};
+		default:
+			return state;
+	}
+};
+export const deleteUserReducer= (state = { }, action) => {
+	switch (action.type) {
+		case "DELETE_USER_REQUEST":
+			return {
+				...state,
+				loading: true,
+			};
+		case "DELETE_USER_SUCCESS":
+			return {
+				...state,
+				loading: false,
+				success: true,
+				users: action.payload,
+			};
+		case "DELETE_USER_FAILED":
+			return {
+				...state,
+				loading: false,
+				error: "Something went wrong",
+			};
+		default:
+			return state;
+	}
+};

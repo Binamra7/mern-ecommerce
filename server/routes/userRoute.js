@@ -61,5 +61,20 @@ router.post("/update", (req, res) => {
 		}
 	);
 });
+router.get("/getallusers", (_, res) => {
+	User.find({}, (err, users) => {
+		if (err) {
+			return res.status(400).json({ message: "Something went wrong" });
+		}
+		return res.send(users);
+	});
+});
+router.post("/deleteuser", (req, res) => {
+	User.findByIdAndDelete(req.body.userid, () => {
+		res.send("User deleted successfully");
+	}).catch((err) => {
+		return res.status(400).json({ message: "Could not delete user",err });
+	});
+});
 
 module.exports = router;

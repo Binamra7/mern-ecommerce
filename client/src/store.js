@@ -12,6 +12,8 @@ import {
 	registerNewUserReducer,
 	loginReducer,
 	updateReducer,
+	getAllUsersReducer,
+	deleteUserReducer,
 } from "./reducers/userReducers";
 import { placeOrderReducer } from "./reducers/orderReducer";
 import {
@@ -30,6 +32,8 @@ const finalReducer = combineReducers({
 	getOrderByIdReducer: getOrderByIdReducer,
 	addProductReviewReducer: addProductReviewReducer,
 	updateReducer: updateReducer,
+	getAllUsersReducer: getAllUsersReducer,
+	deleteUserReducer:deleteUserReducer
 });
 
 const cartItems =
