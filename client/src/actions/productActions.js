@@ -72,11 +72,15 @@ export const filterProducts = (searchKey, sort, category) => (dispatch) => {
 			dispatch({ type: "PRODUCTS_FETCH_ERROR" });
 		});
 };
-export const addProductReview = (review,productid) => (dispatch, getState) => {
+export const addProductReview = (review, productid) => (dispatch, getState) => {
 	dispatch({ type: "ADD_PRODUCT_REVIEW_REQUEST" });
-	const currentUser=getState().loginReducer.currentUser;
+	const currentUser = getState().loginReducer.currentUser;
 	axios
-		.post("http:localhost:5000/api/products/addreview", {review,productid,currentUser})
+		.post("/api/products/addreview", {
+			review,
+			productid,
+			currentUser,
+		})
 		.then((res) => {
 			dispatch({ type: "ADD_PRODUCT_REVIEW_SUCCESS", payload: res.data });
 		})

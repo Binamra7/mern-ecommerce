@@ -18,7 +18,7 @@ const ProductDescription = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getProductById(productId));
-	}, []);
+	}, [dispatch, productId]);
 	//ignore the above warning
 
 	const addItemToCart = () => {

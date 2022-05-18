@@ -21,5 +21,29 @@ router.post("/getProductById", (req, res) => {
 		}
 	});
 });
+router.post("/products/addreview", async (req, res) => {
+	const { productid, review, currentUser } = req.body;
+	const product = await Product.findById({ _id: productid });
+
+	const Review = {
+		userId: currentUser._id,
+		name: currentUser.name,
+		comment: review.comment,
+		rating: review.rating,
+	};
+
+	product.reviews.push(Review);
+	let rating =
+		product.reviews.reduce((acc, x) => acc + x.rating, 0) /
+		product.reviews.length;
+	product.rating = Number(rating);
+
+	product.save((err) => {
+		if (err) {
+			return res.status(400).json({ message: "Could not add review" });
+		}
+		return res.status(200).json({ message: "Review added successfully" });
+	});
+});
 
 module.exports = router;
