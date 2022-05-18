@@ -5,6 +5,7 @@ import { getProductById } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import Review from "../components/Review";
 
 const ProductDescription = () => {
 	const productId = useParams().id;
@@ -65,6 +66,8 @@ const ProductDescription = () => {
 								Add To Cart
 							</button>
 						</div>
+						<hr />
+						<Review product={product} />
 					</div>
 				</div>
 			)}

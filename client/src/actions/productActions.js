@@ -72,5 +72,17 @@ export const filterProducts = (searchKey, sort, category) => (dispatch) => {
 			dispatch({ type: "PRODUCTS_FETCH_ERROR" });
 		});
 };
+export const addProductReview = (review,productid) => (dispatch, getState) => {
+	dispatch({ type: "ADD_PRODUCT_REVIEW_REQUEST" });
+	const currentUser=getState().loginReducer.currentUser;
+	axios
+		.post("http:localhost:5000/api/products/addreview", {review,productid,currentUser})
+		.then((res) => {
+			dispatch({ type: "ADD_PRODUCT_REVIEW_SUCCESS", payload: res.data });
+		})
+		.catch((err) => {
+			dispatch({ type: "ADD_PRODUCT_REVIEW_FAILED", payload: err });
+		});
+};
 
 export default getAllProducts;
