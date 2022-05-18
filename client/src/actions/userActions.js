@@ -45,6 +45,7 @@ export const updateUser= (userid,updatedUser) => (dispatch) => {
 		.then((res) => {
 			dispatch({ type: "USER_UPDATE_SUCCESS" });
 			console.log(res);
+			// window.location.reload();
 		})
 		.catch((err) => {
 			console.error(err);

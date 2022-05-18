@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { registerNewUser } from "../actions/userActions";
+import { logoutUser, registerNewUser } from "../actions/userActions";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import Success from "../components/Success";
@@ -20,7 +20,8 @@ function Profile() {
 	const [password, setPassword] = useState("");
 	const [cpassword, setCpassword] = useState("");
 
-	function update() {
+	async function update(e) {
+		e.preventDefault();
 		if (password !== cpassword) {
 			alert("Password does not match");
 			return;
@@ -31,6 +32,9 @@ function Profile() {
 			password: password,
 		};
 		dispatch(updateUser(currentUser._id, updatedUser));
+		setTimeout(() => {
+			dispatch(logoutUser());
+		}, 1500);
 	}
 
 	return (
@@ -39,7 +43,9 @@ function Profile() {
 				<div className="col-md-5 p-3" style={{ marginTop: "100px" }}>
 					<div className="div">
 						<h2 className="text-center m-3">Register</h2>
-						{success && <Success success="User registered successfully" />}
+						{success && (
+							<Success success="User updated successfully. Please relogin" />
+						)}
 						{loading ? (
 							<Loader />
 						) : (
@@ -88,7 +94,7 @@ function Profile() {
 								</form>
 							</>
 						)}
-						{error && <Error error="Email is already registered" />}
+						{error && <Error error="Could not update" />}
 					</div>
 				</div>
 			</div>

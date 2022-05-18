@@ -34,7 +34,9 @@ const Login = () => {
 				<div className="col-md-4 p-3" style={{ marginTop: "100px" }}>
 					<div className="div">
 						<h2 className="text-center m-3">Login</h2>
-						{success && <Success success="User logged in successfully" />}
+						{/* {success && <Success success="User logged in successfully" />} */}
+						{success && <Loader />}
+
 						{loading ? (
 							<Loader />
 						) : (
