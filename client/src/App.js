@@ -8,6 +8,7 @@ import CartScreen from "./screens/CartScreen";
 import Register from "./screens/Regsiter";
 import Login from "./screens/Login";
 import Order from "./screens/Orders";
+import OrderInfo from "./screens/OrderInfo";
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/orders" element={<Order />} />
+					<Route path="/orderinfo/:orderid" element={<OrderInfo />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

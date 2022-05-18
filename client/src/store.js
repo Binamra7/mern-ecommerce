@@ -9,7 +9,10 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { registerNewUserReducer, loginReducer } from "./reducers/userReducers";
 import { placeOrderReducer } from "./reducers/orderReducer";
-import { getOrdersByUserIdReducer } from "./reducers/orderReducer";
+import {
+	getOrdersByUserIdReducer,
+	getOrderByIdReducer,
+} from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
 	productReducer: productReducer,
@@ -19,6 +22,7 @@ const finalReducer = combineReducers({
 	loginReducer: loginReducer,
 	placeOrderReducer: placeOrderReducer,
 	getOrdersByUserIdReducer: getOrdersByUserIdReducer,
+	getOrderByIdReducer: getOrderByIdReducer,
 });
 
 const cartItems =

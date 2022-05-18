@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrdersByUserId } from "../actions/orderActions";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import { Link } from "react-router-dom";
+
 function Orders() {
 	const orderstate = useSelector((state) => state.getOrdersByUserIdReducer);
 	const { orders, loading, error } = orderstate;
@@ -35,7 +37,12 @@ function Orders() {
 							{orders &&
 								orders.map((order, i) => {
 									return (
-										<tr key={i}>
+										<tr
+											key={i}
+											onClick={() =>
+												(window.location = `/orderinfo/${order._id}`)
+											}
+										>
 											<td>{order._id}</td>
 											<td>{order.orderAmount}</td>
 											<td>{order.createdAt.substring(0, 10)}</td>

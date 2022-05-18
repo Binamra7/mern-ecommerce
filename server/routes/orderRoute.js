@@ -61,5 +61,16 @@ router.post("/getordersbyuserid", (req, res) => {
 		}
 	});
 });
+router.post("/getorderbyid", (req, res) => {
+	const orderid = req.body.orderid;
+	Order.find({ _id: orderid }, (error, orders) => {
+		if (error) {
+			console.log(error);
+			return res.status(400).json({ message: "Something went wrong" });
+		} else {
+			res.send(orders[0]);
+		}
+	});
+});
 
 module.exports = router;
