@@ -10,6 +10,11 @@ import Login from "./screens/Login";
 import Order from "./screens/Orders";
 import OrderInfo from "./screens/OrderInfo";
 import Profile from "./screens/Profile";
+import Admin from "./screens/Admin";
+import UsersList from "./screens/UsersList";
+import ProductsList from "./screens/ProductsList";
+import AddNewProduct from "./screens/AddNewProduct";
+import OrdersList from "./screens/OrdersList";
 
 function App() {
 	return (
@@ -26,6 +31,12 @@ function App() {
 					<Route path="/orders" element={<Order />} />
 					<Route path="/orderinfo/:orderid" element={<OrderInfo />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/admin" element={<Admin />}>
+						<Route path="/admin/userslist" element={<UsersList />} />
+						<Route path="/admin/productslist" element={<ProductsList />} />
+						<Route path="/admin/addnewproduct" element={<AddNewProduct />} />
+						<Route path="/admin/orderslist" element={<OrdersList />} />
+					</Route>
 				</Routes>
 			</BrowserRouter>
 		</div>
