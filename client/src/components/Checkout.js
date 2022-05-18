@@ -17,6 +17,12 @@ export default function Checkout({ amount }) {
 		dispatch(placeOrder(token, amount));
 	};
 
+	const validate = () => {
+		if (!localStorage.getItem("currentUser")) {
+			window.location.href = "/login";
+		}
+	};
+
 	return (
 		<div>
 			{loading && <Loader />}
@@ -30,7 +36,9 @@ export default function Checkout({ amount }) {
 				currency="USD"
 				stripeKey="pk_test_51L0btjD7y6aHzyHtwMocItRoGRKatOhgAYiks6xMvq76uQxPbPqYHL4YLZtb2MeYgyo8GxJsC6pff19sDZhPkevo00b1GGQmVk"
 			>
-				<button className="btn btn-dark">Pay Now</button>
+				<button onClick={validate} className="btn btn-dark">
+					Pay Now
+				</button>
 			</StripeCheckout>
 		</div>
 	);

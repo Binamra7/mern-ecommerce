@@ -12,6 +12,9 @@ function Review({ product }) {
 	const [comment, setComment] = useState("");
 
 	const reviewHandler = () => {
+		if (!localStorage.getItem("currentUser")) {
+			window.location.href = "/login";
+		}
 		const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 		let hasReview = false;
 		for (let i = 0; i < product.reviews.length; i++) {

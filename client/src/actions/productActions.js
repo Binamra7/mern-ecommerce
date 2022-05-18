@@ -83,6 +83,8 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
 		})
 		.then((res) => {
 			dispatch({ type: "ADD_PRODUCT_REVIEW_SUCCESS", payload: res.data });
+			alert("Review submitted successfully");
+			window.location.reload();
 		})
 		.catch((err) => {
 			dispatch({ type: "ADD_PRODUCT_REVIEW_FAILED", payload: err });
