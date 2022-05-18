@@ -25,9 +25,11 @@ app.get("/", (_, res) => {
 const PORT = process.env.PORT || 4000;
 
 const productRoute = require("./routes/productRoute");
+const orderRoute = require("./routes/orderRoute");
 
 app.use("/api", productRoute);
 app.use("/api/user", userRoute);
+app.use("/api/orders", orderRoute);
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
