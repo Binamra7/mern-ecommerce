@@ -2,6 +2,8 @@ import {
 	productReducer,
 	getProductByIdReducer,
 	addProductReviewReducer,
+	deleteProductReducer,
+	addNewProductReducer,
 } from "./reducers/productReducer";
 import { cartReducer } from "./reducers/cartReducer";
 import { combineReducers } from "redux";
@@ -33,7 +35,9 @@ const finalReducer = combineReducers({
 	addProductReviewReducer: addProductReviewReducer,
 	updateReducer: updateReducer,
 	getAllUsersReducer: getAllUsersReducer,
-	deleteUserReducer:deleteUserReducer
+	deleteUserReducer: deleteUserReducer,
+	deleteProductReducer: deleteProductReducer,
+	addNewProductReducer: addNewProductReducer,
 });
 
 const cartItems =

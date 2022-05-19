@@ -104,5 +104,18 @@ export const deleteProduct = (productId) => (dispatch) => {
 			dispatch({ type: "DELETE_PRODUCT_FAILED", payload: err });
 		});
 };
+export const addNewProduct = (product) => (dispatch) => {
+	dispatch({ type: "ADD_NEW_PRODUCT_REQUEST" });
+	axios
+		.post("/api/products/addproduct", product)
+		.then((res) => {
+			dispatch({ type: "ADD_NEW_PRODUCT_SUCCESS", payload: res.data });
+			window.location.reload();
+			// alert("Product added successfully");
+		})
+		.catch((err) => {
+			dispatch({ type: "ADD_NEW_PRODUCT_FAILED", payload: err });
+		});
+};
 
 export default getAllProducts;

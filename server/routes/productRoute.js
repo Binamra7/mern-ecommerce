@@ -54,4 +54,25 @@ router.post("/deleteproduct", (req, res) => {
 		}
 	});
 });
+
+router.post("/products/addproduct", (req, res) => {
+	const product = new Product({
+		name: req.body.name,
+		price: req.body.price,
+		description: req.body.description,
+		image: req.body.image,
+		category: req.body.category,
+		countInStock: req.body.countInStock,
+		rating: 5,
+		reviews: [],
+	});
+	console.log("product", JSON.stringify(product, null, 2));
+	product.save((err) => {
+		if (err) {
+			return res.status(400).json({ message: "Could not add product" });
+		}
+		return res.status(200).json({ message: "Product added successfully" });
+	});
+});
+
 module.exports = router;
