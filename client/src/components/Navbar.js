@@ -12,7 +12,7 @@ export default function Navbar() {
 		<div>
 			<nav className="navbar navbar-expand-lg">
 				<a className="navbar-brand" href="/">
-					MERN E-Commerce
+					SleekShops
 				</a>
 				<button
 					className="navbar-toggler"
@@ -28,19 +28,23 @@ export default function Navbar() {
 					</span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
-					<div className="navbar-nav ml-auto">
+					<div
+						className="navbar-nav"
+						style={{ marginLeft: "auto", marginRight: "20px" }}
+					>
 						{currentUser ? (
 							<div className="dropdown">
 								<button
 									style={{ backgroundColor: "rgba(0,0,0,0)" }}
-									className="btn btn-dark dropdown-toggle"
+									className="btn btn-dark"
 									type="button"
 									id="dropdownMenuButton"
 									data-toggle="dropdown"
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									{currentUser.name}
+									{currentUser.name}&nbsp;
+									<i class="fa-solid fa-user"></i>
 								</button>
 								<div
 									className="dropdown-menu"

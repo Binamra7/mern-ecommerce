@@ -30,6 +30,7 @@ export default function Filter() {
 						onChange={(e) => setSort(e.target.value)}
 						className="form-control"
 					>
+						<i class="fa-solid fa-circle-chevron-down">test</i>
 						<option value="popular">Popular</option>
 						<option value="htl">High to Low</option>
 						<option value="lth">Low to high</option>
