@@ -69,11 +69,14 @@ router.get("/getallusers", (_, res) => {
 		return res.send(users);
 	});
 });
+
 router.post("/deleteuser", (req, res) => {
-	User.findByIdAndDelete(req.body.userid, () => {
-		res.send("User deleted successfully");
-	}).catch((err) => {
-		return res.status(400).json({ message: "Could not delete user",err });
+	User.findByIdAndDelete(req.body.userid, (err) => {
+		if (!err) {
+			return res.send("User deleted successfully");
+		} else {
+			return res.status(400).json({ message: "Could not delete user" });
+		}
 	});
 });
 

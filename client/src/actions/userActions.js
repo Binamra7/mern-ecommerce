@@ -70,11 +70,12 @@ export const deleteUser = (userid) => (dispatch) => {
 	dispatch({ type: "DELETE_USER_REQUEST" });
 
 	axios
-		.post("http://localhost:5000/api/user/deleteuser", userid)
+		.post("http://localhost:5000/api/user/deleteuser", { userid })
 		.then((res) => {
 			dispatch({ type: "DELETE_USER_SUCCESS", payload: res.data });
 			console.log(res);
 			alert("User deleted successfully");
+			window.location.reload();
 		})
 		.catch((err) => {
 			console.error(err);
