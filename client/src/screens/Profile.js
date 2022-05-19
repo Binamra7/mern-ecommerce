@@ -41,7 +41,7 @@ function Profile() {
 			<div className="row justify-content-center">
 				<div className="col-md-5 p-3" style={{ marginTop: "100px" }}>
 					<div className="div">
-						<h2 className="text-center m-3">Register</h2>
+						<h2 className="text-center m-3">Update</h2>
 						{success && (
 							<Success success="User updated successfully. Please relogin" />
 						)}

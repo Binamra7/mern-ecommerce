@@ -35,14 +35,17 @@ const Register = () => {
 	return (
 		<div>
 			<div className="row justify-content-center">
-				<div className="col-md-5 p-3" style={{ marginTop: "100px" }}>
+				<div className="col-md-5 p-3" style={{ marginTop: "20px" }}>
 					<div className="div">
-						<h2 className="text-center m-3">Register</h2>
-						{error && <Error error="Email is already registered" />}
-						{success && <Success success="User registered successfully" />}
-						{loading ? (
-							<Loader />
-						) : (
+						<h2 className="text-center m-3">
+							Register &nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>
+						</h2>
+						<div className="text-center">
+							{error && <Error error="Email is already registered" />}
+							{success && <Success success="User registered successfully" />}
+							{loading && <Loader />}
+						</div>
+						{!loading && (
 							<>
 								<form onSubmit={handleRegister}>
 									<input
@@ -81,14 +84,14 @@ const Register = () => {
 									/>
 									<button
 										type="submit"
-										className="btn btn-primary btn-block mt-3"
+										className="btn btn-primary btn-block mt-3 m-auto register-btn"
 									>
 										Register
 									</button>
 								</form>
 							</>
 						)}
-						<h1 className="text-center mt-3">
+						<h1 className="text-center mt-4">
 							Already have an account?{" "}
 							<Link to="/login">Click here to login</Link>
 						</h1>

@@ -10,7 +10,6 @@ import Review from "../components/Review";
 const ProductDescription = () => {
 	const productId = useParams().id;
 	const [quantity, setQuantity] = useState(1);
-
 	const getProductByIdState = useSelector(
 		(state) => state.getProductByIdReducer
 	);
@@ -19,14 +18,13 @@ const ProductDescription = () => {
 	useEffect(() => {
 		dispatch(getProductById(productId));
 	}, [dispatch, productId]);
-	//ignore the above warning
 
 	const addItemToCart = () => {
 		dispatch(addToCart(product, quantity));
 	};
 
 	return (
-		<div>
+		<div style={{ margin: "0 10%" }}>
 			{loading ? (
 				<Loader />
 			) : error ? (
@@ -36,11 +34,20 @@ const ProductDescription = () => {
 					<div className="col-md-6">
 						<div className="card p-2 m-2">
 							<h1>{product.name}</h1>
-							<img
-								src={product.image}
-								className="img-fluid m-3 big-img"
+							<div
+								style={{
+									// objectFit: "cover",
+									backgroundImage: `url(${product.image})`,
+									backgroundSize: "cover",
+									backgroundRepeat: "no-repeat",
+									backgroundPosition: "50% 50%",
+									width: "500px",
+									height: "400px",
+								}}
+								// src={product.image}
+								className="img-fluid m-3 big-img text-center"
 								alt="product"
-							/>
+							></div>
 							<p>{product.description}</p>
 						</div>
 					</div>
@@ -49,20 +56,31 @@ const ProductDescription = () => {
 							<h1>Price: {product.price}</h1>
 							<hr />
 							<h1>Select Quantity</h1>
-							<select
-								value={quantity}
-								onChange={(e) => setQuantity(e.target.value)}
-							>
-								{[...Array(product.countInStock).keys()].map((value, index) => {
-									return (
-										<option key={index} value={index + 1}>
-											{index + 1}
-										</option>
-									);
-								})}
-							</select>
+							{product.countInStock ? (
+								<select
+									className="form-select"
+									value={quantity}
+									onChange={(e) => setQuantity(e.target.value)}
+								>
+									{[...Array(product.countInStock).keys()].map(
+										(value, index) => {
+											return (
+												<option key={index} value={index + 1}>
+													{index + 1}
+												</option>
+											);
+										}
+									)}
+								</select>
+							) : (
+								<p>Out of Stock</p>
+							)}
 							<hr />
-							<button className="btn btn-dark" onClick={addItemToCart}>
+							<button
+								{...(product.countInStock ? {} : { disabled: true })}
+								className="btn btn-success text-light text-center"
+								onClick={addItemToCart}
+							>
 								Add To Cart
 							</button>
 						</div>

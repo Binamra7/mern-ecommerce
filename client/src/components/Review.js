@@ -36,75 +36,89 @@ function Review({ product }) {
 
 	return (
 		<div>
-			<h2>Give your review</h2>
-			<Rating
-				onChange={(e) => {
-					setRating(e);
-				}}
-				initialRating={rating}
-				emptySymbol={
-					<img
-						style={{ width: "30px", color: "black" }}
-						alt="stars empty"
-						src={EmptyStar}
-						className="icon"
-					/>
-				}
-				fullSymbol={
-					<img
-						style={{ width: "30px" }}
-						alt="stars full"
-						src={FullStar}
-						className="icon"
-					/>
-				}
-			/>
-			<input
-				type="text"
-				className="form-control mt-3"
-				value={comment}
-				onChange={(e) => {
-					setComment(e.target.value);
-				}}
-				placeholder="Add your comment"
-			/>
-			<button onClick={reviewHandler} className="btn btn-primary mt-3">
-				Submit Review
-			</button>
-			<h2 className="mt-3">Latest Reviews</h2>
-			{product.reviews &&
-				product.reviews.map((review, i) => {
-					return (
-						<div key={i} className="text-left">
-							<Rating
-								onChange={(e) => {
-									setRating(e);
-								}}
-								initialRating={review.rating}
-								emptySymbol={
-									<img
-										style={{ width: "30px", color: "black" }}
-										alt="stars empty"
-										src={EmptyStar}
-										className="icon"
+			<div className="text-center">
+				<h2 className="text-center">Give your review</h2>
+				<Rating
+					onChange={(e) => {
+						setRating(e);
+					}}
+					initialRating={rating}
+					emptySymbol={
+						<img
+							style={{ width: "30px", color: "black" }}
+							alt="stars empty"
+							src={EmptyStar}
+							className="icon"
+						/>
+					}
+					fullSymbol={
+						<img
+							style={{ width: "30px" }}
+							alt="stars full"
+							src={FullStar}
+							className="icon"
+						/>
+					}
+				/>
+				<input
+					type="text"
+					className="form-control mt-3"
+					value={comment}
+					onChange={(e) => {
+						setComment(e.target.value);
+					}}
+					placeholder="Add your comment"
+				/>
+				<button onClick={reviewHandler} className="btn btn-primary mt-3">
+					Submit Review
+				</button>
+				<hr />
+			</div>
+			{product.reviews.length > 0 ? (
+				<>
+					{" "}
+					<h2 className="mt-3 text-center">Latest Reviews</h2>
+					{product.reviews &&
+						product.reviews.map((review, i) => {
+							return (
+								<div key={i} className="text-left justify-content-left">
+									<Rating
+										style={{ display: "flex", justifyContent: "left" }}
+										className="stars"
+										onChange={(e) => {
+											setRating(e);
+										}}
+										initialRating={review.rating}
+										emptySymbol={
+											<img
+												style={{ width: "30px", color: "black" }}
+												alt="stars empty"
+												src={EmptyStar}
+												className="icon"
+											/>
+										}
+										fullSymbol={
+											<img
+												style={{ width: "30px" }}
+												alt="stars full"
+												src={FullStar}
+												className="icon"
+											/>
+										}
+										readonly
 									/>
-								}
-								fullSymbol={
-									<img
-										style={{ width: "30px" }}
-										alt="stars full"
-										src={FullStar}
-										className="icon"
-									/>
-								}
-								readonly
-							/>
-							<p>{review.comment}</p>
-							<p>By: {review.name}</p>
-							<hr />
-						</div>
-					);
-				})}
+									<p className="text-secondary">
+										<i>by {review.name}</i>
+									</p>
+									<p className="text-dark">{review.comment}</p>
+									<hr />
+								</div>
+							);
+						})}
+				</>
+			) : (
+				<h2 className="text-center">No reviews yet</h2>
+			)}
 		</div>
 	);
 }

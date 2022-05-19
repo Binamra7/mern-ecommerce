@@ -7,6 +7,7 @@ export const registerNewUser = (user) => (dispatch) => {
 		.post("http://localhost:5000/api/user/register", user)
 		.then((res) => {
 			dispatch({ type: "USER_REGISTER_SUCCESS" });
+			dispatch(loginUser(user));
 			console.log(res);
 		})
 		.catch((err) => {

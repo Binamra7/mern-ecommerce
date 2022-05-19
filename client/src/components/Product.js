@@ -3,16 +3,20 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import FullStar from "../assets/images/full-star.png";
 import EmptyStar from "../assets/images/empty-star.png";
+import { formatPrice } from "../helpers/FormatPrice";
 
 const Product = ({ product }) => {
 	return (
-		<div>
+		<div className="text-left">
 			<Link style={{ textDecoration: "none" }} to={`product/${product._id}`}>
 				<div className="text-center">
 					<img src={product.image} className="img-fluid" alt="Product" />
 				</div>
 				<h1>{product.name}</h1>
+				<h1 className="price">Price: {formatPrice(product.price)}</h1>
 				<Rating
+					fractions={2}
+					className="stars"
 					initialRating={product.rating}
 					emptySymbol={
 						<img
@@ -34,7 +38,6 @@ const Product = ({ product }) => {
 					}
 					readonly
 				/>
-				<h1>Price: {product.price}</h1>
 			</Link>
 		</div>
 	);

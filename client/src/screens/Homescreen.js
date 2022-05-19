@@ -17,16 +17,17 @@ export default function Homescreen() {
 	return (
 		<div>
 			<Filter />
+			<div className="text-center">{loading && <Loader />}</div>
 			<div className="row justify-content-center">
 				{loading ? (
-					<Loader />
+					""
 				) : error ? (
 					<Error error="Something went wrong..." />
 				) : (
 					products.length > 0 &&
 					products.map((product) => {
 						return (
-							<div className="col-md-3 m-2 card p-2">
+							<div className="col-md-3 m-2 card p-2 bg-light">
 								<Product key={product._id} product={product} />
 							</div>
 						);

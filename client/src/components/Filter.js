@@ -9,52 +9,50 @@ export default function Filter() {
 	const [category, setCategory] = useState("all");
 
 	return (
-		<div className="">
-			<div className="row justify-content-center">
-				{/* <form
-					className="form-control display-flex"
-					
-				> */}
-				<div className="col-md-3 mt-2 ml-2">
+		<div className="mb-4">
+			<div className="row justify-content-center align-items-center">
+				<div className="col-md-3 ml-2">
 					<input
+						id="search"
 						value={searchKey}
 						onChange={(e) => setSearchKey(e.target.value)}
 						type="text"
-						placeholder="search porducts"
+						placeholder="Search Products"
 						className="form-control"
 					/>
 				</div>
-				<div className="col-md-2 mt-4 ml-2">
+				<div className="col-md-2 mt-2">
 					<select
 						value={sort}
 						onChange={(e) => setSort(e.target.value)}
-						className="form-control"
+						className="form-select"
 					>
-						<i class="fa-solid fa-circle-chevron-down">test</i>
+						{/* <i class="fa-solid fa-circle-chevron-down"></i> */}
 						<option value="popular">Popular</option>
 						<option value="htl">High to Low</option>
 						<option value="lth">Low to high</option>
 					</select>
 				</div>
 
-				<div className="col-md-2 mt-4 ml-2">
+				<div className="col-md-2 mt-2">
 					<select
 						value={category}
 						onChange={(e) => setCategory(e.target.value)}
-						className="form-control"
+						className="form-select"
 					>
-						<option value="games">Games</option>
+						<option value="all">All</option>
 						<option value="fashion">Fashion</option>
+						<option value="games">Games</option>
 						<option value="mobiles">Mobiles</option>
 					</select>
 				</div>
-				<div className="col-md-2 mt-4 ml-2">
+				<div className="col-md-2 mt-2">
 					<button
 						onClick={() => {
 							dispatch(filterProducts(searchKey, sort, category));
 						}}
 						value="submit"
-						className="btn btn-dark"
+						className="btn border border-dark btn-dark text-light"
 					>
 						Search
 					</button>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../actions/userActions";
+import "./NavbarStyles.css";
 
 export default function Navbar() {
 	const cartReducer = useSelector((state) => state.cartReducer);
@@ -10,8 +11,11 @@ export default function Navbar() {
 	const currentUser = JSON.parse(localStorage.getItem("currentUser") || null);
 	return (
 		<div>
-			<nav className="navbar navbar-expand-lg">
-				<a className="navbar-brand" href="/">
+			<nav
+				style={{ backgroundColor: "#f8f8ff !important" }}
+				className="navbar navbar-expand-lg p-4"
+			>
+				<a className="navbar-brand" href="/" style={{ marginLeft: "10%" }}>
 					SleekShops
 				</a>
 				<button
@@ -24,19 +28,19 @@ export default function Navbar() {
 					aria-label="Toggle navigation"
 				>
 					<span className="navbar-toggler-icon">
-						<i className="fas fa-bars" style={{ color: "white" }}></i>
+						<i className="fas fa-bars" style={{ color: "black" }}></i>
 					</span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<div
 						className="navbar-nav"
-						style={{ marginLeft: "auto", marginRight: "20px" }}
+						style={{ marginLeft: "auto", marginRight: "10%" }}
 					>
 						{currentUser ? (
 							<div className="dropdown">
 								<button
 									style={{ backgroundColor: "rgba(0,0,0,0)" }}
-									className="btn btn-dark"
+									className="btn btn-dark user-btn"
 									type="button"
 									id="dropdownMenuButton"
 									data-toggle="dropdown"
@@ -74,14 +78,22 @@ export default function Navbar() {
 							</li>
 						)}
 						<li className="nav-item">
-							<a className="nav-link" href="/cart">
+							<a className="nav-link cart-icon" href="/cart">
 								<i className="fas fa-shopping-cart"></i>
-								{cartItems.length}
+								<span className="cart-qty">{cartItems.length}</span>
 							</a>
 						</li>
 					</div>
 				</div>
 			</nav>
+			<hr
+				style={{
+					color: "black",
+					width: "80%",
+					margin: "auto",
+					marginBottom: "20px",
+				}}
+			/>
 		</div>
 	);
 }

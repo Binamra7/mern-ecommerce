@@ -1,75 +1,99 @@
-/* *{
-  border:1px solid red !important;
-} */
+* {
+	/* border:1px solid red !important; */
+	font-family: "Barlow", sans-serif;
+	font-weight: bold !important;
+	font-size: 18px !important;
+	/* font-style: 'Borlow', sans-serif !important; */
+}
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	/* padding:10px; */
+	margin: 0;
+	font-family: "Lato", sans-serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    sans-serif; */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: "Lato", sans-serif;
 }
 .navbar {
-  background-color: rgb(8, 8, 83) !important;
+	background-color: #f8f8ff !important;
+	color: black !important;
 }
-.nav-link{
-  color:white !important;
+.nav-link {
+	color: rgb(0, 0, 0) !important;
 }
 
 .navbar-brand {
-  color: white !important;
+	color: rgb(0, 0, 0) !important;
+}
+.btn-dark {
+	color: black !important;
 }
 
-h1{
-  font-size:16px !important;
-  text-align: left !important;
-  color:black !important;
-  text-decoration: none !important;
+h1 {
+	font-size: 16px !important;
+	text-align: left !important;
+	color: black !important;
+	text-decoration: none !important;
 }
 
-h2{
-  font-size:25px !important;
-  font-weight:bold Im !important;
+h2 {
+	font-size: 25px !important;
+	font-weight: bold Im !important;
 }
 
 .img-fluid {
-  height: 200px !important;
-  text-align: center !important;
+	height: 200px !important;
+	text-align: center !important;
 }
 .big-img {
-  height:300px !important;
+	height: 300px !important;
 }
-p{
-  text-align: left !important;
+p {
+	text-align: left !important;
 }
 .btn {
-  width:200px;
+	width: 200px;
+}
+.btn-dark {
+	background-color: black !important;
+}
+.btn-dark:hover {
+	background-color: rgb(49, 51, 51) !important;
 }
 input {
-  box-shadow: none !important;
-  margin-top:10px !important;
-  border: 1px solid black !important;
+	box-shadow: none !important;
+	margin-top: 10px !important;
+	border: 1px solid black !important;
 }
-h3{
-  font-size: 16px !important;
+h3 {
+	font-size: 16px !important;
 }
 .orderitem h1 {
-  font-size: 16px !important;
+	font-size: 16px !important;
 }
-.admin{
-  background-color: aquamarine;
+.admin {
+	background-color: aquamarine;
 }
 .admin li {
-  list-style-type: none !important;
-  display: inline !important;
-  margin-left: 20px !important;
+	list-style-type: none !important;
+	display: inline !important;
+	margin-left: 20px !important;
 }
-td{
-  text-align:left !important;
+td {
+	text-align: left !important;
+}
+.price {
+	color: rgb(0, 34, 129) !important;
+	font-style: italic !important;
+	font-size: 18px !important;
+}
+.login-btn,.register-btn {
+	display: flex !important;
+	justify-content: center !important;
 }
