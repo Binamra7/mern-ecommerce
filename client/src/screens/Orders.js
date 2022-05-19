@@ -19,13 +19,13 @@ function Orders() {
 		<div>
 			<div className="row justify-content-center mt-5">
 				<div className="col-md-8">
-					<h2>My Order List</h2>
+					<h2 className="text-center mb-3">My Order List</h2>
 					<table className="table table-striped">
 						<thead>
 							<tr>
 								<th>Order ID</th>
 								<th>Amount</th>
-								<th>Data</th>
+								<th>Date</th>
 								<th>Transaction ID</th>
 								<th>Status</th>
 							</tr>

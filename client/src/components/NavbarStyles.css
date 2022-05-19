@@ -4,7 +4,7 @@
 	border: none !important;
 }
 .user-btn:hover {
-	transition: 0.5s ease-in-out;
+	transition: 0.2s ease-in-out;
 	background-color: rgb(234, 239, 240) !important;
 	box-shadow: 3px 3px 3px 3px #c4c2c2;
 	position: relative !important;
@@ -42,8 +42,10 @@
 }
 .stars {
 	transform: scale(0.5);
-    margin-left:-40px;
-    
+    margin-left:-38px;
+	/* display: flex !important;
+	justify-content: flex-start !important;
+	align-items: flex-start !important; */
 
 	/* display: flex !important; */
 }

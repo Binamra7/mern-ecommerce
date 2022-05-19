@@ -9,6 +9,7 @@ const Product = ({ product }) => {
 	return (
 		<div className="text-left">
 			<Link style={{ textDecoration: "none" }} to={`product/${product._id}`}>
+				{/* <div className="text-left"> */}
 				<div className="text-center">
 					<img src={product.image} className="img-fluid" alt="Product" />
 				</div>
@@ -38,6 +39,7 @@ const Product = ({ product }) => {
 					}
 					readonly
 				/>
+				{/* </div> */}
 			</Link>
 		</div>
 	);

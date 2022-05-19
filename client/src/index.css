@@ -86,7 +86,11 @@ h3 {
 	margin-left: 20px !important;
 }
 td {
-	text-align: left !important;
+	text-align: left !important;	
+	font-weight: lighter !important;
+}
+p{
+	font-weight: lighter !important;
 }
 .price {
 	color: rgb(0, 34, 129) !important;

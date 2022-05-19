@@ -1,7 +1,6 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { useDispatch, useSelector } from "react-redux";
-// import { placeOrderReducer } from "../reducers/placeOrderReducer";
 import { placeOrder } from "../actions/orderActions";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
@@ -36,7 +35,7 @@ export default function Checkout({ amount }) {
 				currency="USD"
 				stripeKey="pk_test_51L0btjD7y6aHzyHtwMocItRoGRKatOhgAYiks6xMvq76uQxPbPqYHL4YLZtb2MeYgyo8GxJsC6pff19sDZhPkevo00b1GGQmVk"
 			>
-				<button onClick={validate} className="btn btn-dark">
+				<button onClick={validate} className="btn btn-dark text-light">
 					Pay Now
 				</button>
 			</StripeCheckout>

@@ -74,7 +74,7 @@ function Review({ product }) {
 				</button>
 				<hr />
 			</div>
-			{product.reviews.length > 0 ? (
+			{product.reviews && product.reviews.length > 0 ? (
 				<>
 					{" "}
 					<h2 className="mt-3 text-center">Latest Reviews</h2>

@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../actions/cartActions";
 import Checkout from "../components/Checkout";
+import { formatPrice } from "../helpers/FormatPrice";
 
 const CartScreen = () => {
 	const dispatch = useDispatch();
@@ -68,7 +69,12 @@ const CartScreen = () => {
 						</tbody>
 					</table>
 					<hr />
-					<h2 className="text-center">Sub Total: {subTotal}</h2>
+					<h2 className="text-center">
+						<i>
+							Sub Total:&nbsp;
+							{formatPrice(subTotal)}
+						</i>
+					</h2>
 					<hr />
 					<Checkout amount={subTotal} />
 				</div>

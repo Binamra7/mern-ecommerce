@@ -16,7 +16,7 @@ export default function Navbar() {
 				className="navbar navbar-expand-lg p-4"
 			>
 				<a className="navbar-brand" href="/" style={{ marginLeft: "10%" }}>
-					SleekShops
+					<h2>SleekShops</h2>
 				</a>
 				<button
 					className="navbar-toggler"
@@ -34,7 +34,7 @@ export default function Navbar() {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<div
 						className="navbar-nav"
-						style={{ marginLeft: "auto", marginRight: "10%" }}
+						style={{ marginLeft: "auto", marginRight: "15%" }}
 					>
 						{currentUser ? (
 							<div className="dropdown">
@@ -47,7 +47,7 @@ export default function Navbar() {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									{currentUser.name}&nbsp;
+									{currentUser.name}&nbsp;&nbsp;
 									<i class="fa-solid fa-user"></i>
 								</button>
 								<div
@@ -66,14 +66,15 @@ export default function Navbar() {
 										}}
 										className="dropdown-item"
 									>
-										Logout
+										Logout &nbsp;&nbsp;
+										<i class="fa fa-sign-out" aria-hidden="true"></i>
 									</button>
 								</div>
 							</div>
 						) : (
 							<li className="nav-item">
-								<a className="nav-link" href="/login">
-									Login
+								<a className="nav-link btn user-btn btn-dark" href="/login">
+									Login / Register
 								</a>
 							</li>
 						)}

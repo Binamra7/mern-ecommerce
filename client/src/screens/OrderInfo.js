@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrderById } from "../actions/orderActions";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
+import { formatPrice } from "../helpers/FormatPrice";
 
 function OrderInfo() {
 	const dispatch = useDispatch();
@@ -30,8 +31,8 @@ function OrderInfo() {
 									<h1>{item.name}</h1>
 									<h1>Quantity: {item.quantity}</h1>
 									<h1>
-										Price: {item.price} x{item.quantity} :{" "}
-										{item.price * item.quantity}
+										Price: <i>{formatPrice(item.price)}</i> x{item.quantity} ={" "}
+										<i>{formatPrice(item.price * item.quantity)}</i>
 									</h1>
 									<hr />
 								</div>
@@ -43,18 +44,26 @@ function OrderInfo() {
 						>
 							<h2>Order Details</h2>
 							<hr />
-							<h3 className="text-left">Order Id: {order._id}</h3>
-							<h3 className="text-left">Total Amount: {order.orderAmount}</h3>
 							<h3 className="text-left">
-								Date of Order: {order.createdAt.substring(0, 10)}
+								Order Id: <i>{order._id}</i>
 							</h3>
 							<h3 className="text-left">
-								Transaction Id: {order.transactionId}
+								Total Amount: <i>{formatPrice(order.orderAmount)}</i>
+							</h3>
+							<h3 className="text-left">
+								Date of Order: <i>{order.createdAt.substring(0, 10)}</i>
+							</h3>
+							<h3 className="text-left">
+								Transaction Id: <i>{order.transactionId}</i>
 							</h3>
 							{order.isDelivered ? (
-								<h3 className="text-left">Delivered</h3>
+								<h3 className="text-left">
+									Status: <i>Delivered</i>
+								</h3>
 							) : (
-								<h3 className="text-left">Order in process</h3>
+								<h3 className="text-left">
+									Status: <i>Order in process</i>
+								</h3>
 							)}
 							<hr />
 							<div>
