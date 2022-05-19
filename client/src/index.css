@@ -70,3 +70,6 @@ h3{
   display: inline !important;
   margin-left: 20px !important;
 }
+td{
+  text-align:left !important;
+}

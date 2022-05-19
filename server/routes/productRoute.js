@@ -45,5 +45,13 @@ router.post("/products/addreview", async (req, res) => {
 		return res.status(200).json({ message: "Review added successfully" });
 	});
 });
-
+router.post("/deleteproduct", (req, res) => {
+	Product.findByIdAndDelete(req.body.productId, (err) => {
+		if (!err) {
+			res.send("Product deleted successfully");
+		} else {
+			return res.status(400).json({ message: "Failed to delete product" });
+		}
+	});
+});
 module.exports = router;

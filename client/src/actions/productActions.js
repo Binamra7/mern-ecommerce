@@ -91,4 +91,18 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
 		});
 };
 
+export const deleteProduct = (productId) => (dispatch) => {
+	dispatch({ type: "DELETE_PRODUCT_REQUEST" });
+	axios
+		.post("/api/deleteproduct", { productId })
+		.then((res) => {
+			dispatch({ type: "DELETE_PRODUCT_SUCCESS", payload: res.data });
+			alert("Product deleted successfully");
+			window.location.reload();
+		})
+		.catch((err) => {
+			dispatch({ type: "DELETE_PRODUCT_FAILED", payload: err });
+		});
+};
+
 export default getAllProducts;
