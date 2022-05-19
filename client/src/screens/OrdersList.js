@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrders } from "../actions/orderActions";
-import { getAllOrdersReducer } from "../reducers/orderReducer";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
@@ -12,7 +11,7 @@ function OrdersList() {
 	useEffect(() => {
 		document.title = "Orders List";
 		dispatch(getAllOrders());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div>

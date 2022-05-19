@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productReducer } from "../reducers/productReducer";
 import getAllProducts, { deleteProduct } from "../actions/productActions";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
@@ -12,7 +11,7 @@ function ProductsList() {
 	useEffect(() => {
 		document.title = "Users List";
 		dispatch(getAllProducts());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div>

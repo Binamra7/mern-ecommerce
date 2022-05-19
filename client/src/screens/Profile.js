@@ -1,7 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser, registerNewUser } from "../actions/userActions";
+import { logoutUser } from "../actions/userActions";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import Success from "../components/Success";
@@ -13,7 +13,6 @@ function Profile() {
 	const currentUser = loginstate.currentUser;
 	const updateuserstate = useSelector((state) => state.updateReducer);
 	const { error, loading, success } = updateuserstate;
-	const registerReducerState = useSelector((state) => state.registerReducer);
 
 	const [name, setName] = useState(currentUser.name);
 	const [email, setEmail] = useState(currentUser.email);

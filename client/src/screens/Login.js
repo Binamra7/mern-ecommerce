@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../actions/userActions";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
-import Success from "../components/Success";
+
 const Login = () => {
 	const dispatch = useDispatch();
 	const loginReducerState = useSelector((state) => state.loginReducer);
