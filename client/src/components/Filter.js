@@ -11,6 +11,10 @@ export default function Filter() {
 	return (
 		<div className="">
 			<div className="row justify-content-center">
+				{/* <form
+					className="form-control display-flex"
+					
+				> */}
 				<div className="col-md-3 mt-2 ml-2">
 					<input
 						value={searchKey}
@@ -48,11 +52,13 @@ export default function Filter() {
 						onClick={() => {
 							dispatch(filterProducts(searchKey, sort, category));
 						}}
+						value="submit"
 						className="btn btn-dark"
 					>
 						Search
 					</button>
 				</div>
+				{/* </form> */}
 			</div>
 		</div>
 	);

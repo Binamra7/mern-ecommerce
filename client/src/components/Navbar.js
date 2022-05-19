@@ -12,7 +12,7 @@ export default function Navbar() {
 		<div>
 			<nav className="navbar navbar-expand-lg">
 				<a className="navbar-brand" href="/">
-					Sheyshop
+					MERN E-Commerce
 				</a>
 				<button
 					className="navbar-toggler"
