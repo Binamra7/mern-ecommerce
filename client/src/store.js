@@ -21,6 +21,7 @@ import { placeOrderReducer } from "./reducers/orderReducer";
 import {
 	getOrdersByUserIdReducer,
 	getOrderByIdReducer,
+	getAllOrdersReducer,
 } from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
@@ -38,6 +39,7 @@ const finalReducer = combineReducers({
 	deleteUserReducer: deleteUserReducer,
 	deleteProductReducer: deleteProductReducer,
 	addNewProductReducer: addNewProductReducer,
+	getAllOrdersReducer: getAllOrdersReducer,
 });
 
 const cartItems =

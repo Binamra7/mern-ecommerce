@@ -51,12 +51,26 @@ export const getOrderById = (orderid) => (dispatch, getState) => {
 	dispatch({ type: "GET_ORDERBYID_REQUEST" });
 
 	axios
-		.post("http://localhost:5000/api/orders/getorderbyid", {orderid})
+		.post("http://localhost:5000/api/orders/getorderbyid", { orderid })
 		.then((res) => {
 			dispatch({ type: "GET_ORDERBYID_SUCCESS", payload: res.data });
 			console.log(res.data);
 		})
 		.catch((err) => {
 			dispatch({ type: "GET_ORDERBYID_FAILED", payload: err });
+		});
+};
+
+export const getAllOrders = () => (dispatch) => {
+	dispatch({ type: "GET_ALL_ORDERS_REQUEST" });
+
+	axios
+		.get("/api/orders/getallorders")
+		.then((res) => {
+			dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: res.data });
+			console.log("res.data", res.data);
+		})
+		.catch((err) => {
+			dispatch({ type: "GET_ALL_ORDERS_FAILED", payload: err });
 		});
 };

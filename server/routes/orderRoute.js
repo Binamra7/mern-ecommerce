@@ -72,5 +72,15 @@ router.post("/getorderbyid", (req, res) => {
 		}
 	});
 });
+router.get("/getallorders", (_, res) => {
+	Order.find({}, (error, orders) => {
+		if (error) {
+			console.log(error);
+			return res.status(400).json({ message: "Could not fetch orders" });
+		} else {
+			res.send(orders);
+		}
+	});
+});
 
 module.exports = router;
