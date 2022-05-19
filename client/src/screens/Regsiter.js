@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerNewUser } from "../actions/userActions";
 import Error from "../components/Error";
@@ -7,7 +8,9 @@ import Success from "../components/Success";
 
 const Register = () => {
 	const dispatch = useDispatch();
-	const registerReducerState = useSelector((state) => state.registerReducer);
+	const registerReducerState = useSelector(
+		(state) => state.registerNewUserReducer
+	);
 	const { error, loading, success } = registerReducerState;
 
 	const [name, setName] = useState("");
@@ -35,6 +38,7 @@ const Register = () => {
 				<div className="col-md-5 p-3" style={{ marginTop: "100px" }}>
 					<div className="div">
 						<h2 className="text-center m-3">Register</h2>
+						{error && <Error error="Email is already registered" />}
 						{success && <Success success="User registered successfully" />}
 						{loading ? (
 							<Loader />
@@ -84,7 +88,10 @@ const Register = () => {
 								</form>
 							</>
 						)}
-						{error && <Error error="Email is already registered" />}
+						<h1 className="text-center mt-3">
+							Already have an account?{" "}
+							<Link to="/login">Click here to login</Link>
+						</h1>
 					</div>
 				</div>
 			</div>

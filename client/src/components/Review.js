@@ -14,6 +14,7 @@ function Review({ product }) {
 	const reviewHandler = () => {
 		if (!localStorage.getItem("currentUser")) {
 			window.location.href = "/login";
+			return;
 		}
 		const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 		let hasReview = false;

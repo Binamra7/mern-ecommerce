@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../actions/userActions";
 import Error from "../components/Error";
@@ -37,6 +38,7 @@ const Login = () => {
 						{/* {success && <Success success="User logged in successfully" />} */}
 						{success && <Loader />}
 
+						{error && <Error error="Invalid email or password" />}
 						{loading ? (
 							<Loader />
 						) : (
@@ -69,7 +71,10 @@ const Login = () => {
 								</form>
 							</>
 						)}
-						{error && <Error error="Invalid email or password" />}
+						<h1 className="text-center mt-3">
+							Don't have an account?{" "}
+							<Link to="/register">Click here to register</Link>
+						</h1>
 					</div>
 				</div>
 			</div>

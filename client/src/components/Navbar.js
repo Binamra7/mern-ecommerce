@@ -23,13 +23,16 @@ export default function Navbar() {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<span className="navbar-toggler-icon"></span>
+					<span className="navbar-toggler-icon">
+						<i className="fas fa-bars" style={{ color: "white" }}></i>
+					</span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<div className="navbar-nav ml-auto">
 						{currentUser ? (
 							<div className="dropdown">
 								<button
+									style={{ backgroundColor: "rgba(0,0,0,0)" }}
 									className="btn btn-dark dropdown-toggle"
 									type="button"
 									id="dropdownMenuButton"

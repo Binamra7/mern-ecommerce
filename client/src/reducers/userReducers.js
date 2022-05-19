@@ -97,18 +97,20 @@ export const getAllUsersReducer = (state = { users: [] }, action) => {
 			return state;
 	}
 };
-export const deleteUserReducer= (state = { }, action) => {
+export const deleteUserReducer = (state = {}, action) => {
 	switch (action.type) {
 		case "DELETE_USER_REQUEST":
 			return {
 				...state,
 				loading: true,
+				error: false,
 			};
 		case "DELETE_USER_SUCCESS":
 			return {
 				...state,
 				loading: false,
 				success: true,
+				error: false,
 				users: action.payload,
 			};
 		case "DELETE_USER_FAILED":
