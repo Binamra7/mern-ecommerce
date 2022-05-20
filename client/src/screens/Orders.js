@@ -37,6 +37,7 @@ function Orders() {
 								orders.map((order, i) => {
 									return (
 										<tr
+											className="cursor-pointer"
 											key={i}
 											onClick={() =>
 												(window.location = `/orderinfo/${order._id}`)

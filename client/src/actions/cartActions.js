@@ -4,6 +4,7 @@ export const addToCart = (product, quantity) => (dispatch, getState) => {
 		_id: product._id,
 		price: product.price,
 		countInStock: product.countInStock,
+		image: product.image,
 		quantity: quantity,
 	};
 	dispatch({ type: "ADD_TO_CART", payload: cartItem });

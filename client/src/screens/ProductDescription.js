@@ -35,7 +35,6 @@ const ProductDescription = () => {
 					<div className="row mt-5">
 						<div className="col-md-6">
 							<div className="card p-2 m-2">
-								<h1>{product.name}</h1>
 								<div
 									style={{
 										// objectFit: "cover",
@@ -50,6 +49,7 @@ const ProductDescription = () => {
 									className="img-fluid m-3 big-img text-center"
 									alt="product"
 								></div>
+								<h1>{product.name}</h1>
 								<p>{product.description}</p>
 							</div>
 						</div>

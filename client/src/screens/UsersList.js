@@ -15,10 +15,11 @@ function UsersList() {
 
 	return (
 		<div>
-			<h2>Users List</h2>
+			<h2 className="text-center mb-3">Users List</h2>
 			<table className="table table-bordered">
 				<thead>
 					<tr>
+						<th>S.N</th>
 						<th>User ID</th>
 						<th>Name</th>
 						<th>Email</th>
@@ -29,16 +30,17 @@ function UsersList() {
 					{loading && <Loader />}
 					{error && <Error error="Could not fetch users list" />}
 					{users &&
-						users.map((user) => {
+						users.map((user, idx) => {
 							return (
 								<tr key={user._id}>
+									<td>{idx + 1}</td>
 									<td>{user._id}</td>
 									<td>{user.name}</td>
 									<td>{user.email}</td>
-									<td>
+									<td className="text-center cursor-pointer">
 										<i
 											onClick={() => dispatch(deleteUser(user._id))}
-											className="fa fa-trash"
+											className="fa fa-trash text-danger"
 										></i>
 									</td>
 								</tr>

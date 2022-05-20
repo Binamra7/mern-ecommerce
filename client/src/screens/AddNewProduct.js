@@ -32,7 +32,7 @@ const AddNewProduct = () => {
 
 	return (
 		<div>
-			<h1>Add New Product</h1>
+			<h2 className="text-center">Add New Product</h2>
 			{loading && <Loader />}
 			{error && <Error error="Could not add product. Please try again" />}
 			{success && <Success success="Product added successfully" />}

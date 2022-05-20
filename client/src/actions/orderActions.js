@@ -10,6 +10,7 @@ export const placeOrder = (token, subTotal) => (dispatch, getState) => {
 			quantity: cartItems_before[i].quantity,
 			_id: cartItems_before[i]._id,
 			price: cartItems_before[i].price,
+			image: cartItems_before[i].image,
 		};
 		cartItems.push(item);
 	}

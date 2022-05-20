@@ -7,8 +7,12 @@ import { formatPrice } from "../helpers/FormatPrice";
 
 const Product = ({ product }) => {
 	return (
-		<div className="text-left">
-			<Link style={{ textDecoration: "none" }} to={`product/${product._id}`}>
+		<div>
+			<Link
+				style={{ textDecoration: "none" }}
+				to={`product/${product._id}`}
+				className="text-left d-flex justify-content-around align-items-start flex-column"
+			>
 				{/* <div className="text-left"> */}
 				<div className="text-center">
 					<img src={product.image} className="img-fluid" alt="Product" />

@@ -8,8 +8,8 @@ import { Link, Outlet } from "react-router-dom";
 function Admin() {
 	return (
 		<div>
-			<div className="row justify-content-center mt-5">
-				<div className="col-md-10">
+			<div className="row justify-content-center mt-2">
+				<div className="col-md-10 text-center">
 					<ul className="admin p-2">
 						<li>
 							<Link style={{ color: "black" }} to="/admin/userslist">

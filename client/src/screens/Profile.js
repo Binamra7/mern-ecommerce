@@ -39,9 +39,9 @@ function Profile() {
 	return (
 		<div>
 			<div className="row justify-content-center">
-				<div className="col-md-5 p-3" style={{ marginTop: "100px" }}>
+				<div className="col-md-5 p-3" style={{ marginTop: "20px" }}>
 					<div className="div">
-						<h2 className="text-center m-3">Update</h2>
+						<h2 className="text-center m-3">Update your info</h2>
 						{success && (
 							<Success success="User updated successfully. Please relogin" />
 						)}
@@ -58,6 +58,7 @@ function Profile() {
 										value={name}
 										onChange={(e) => setName(e.target.value)}
 									/>
+
 									<input
 										required
 										type="email"
@@ -84,12 +85,14 @@ function Profile() {
 										value={cpassword}
 										onChange={(e) => setCpassword(e.target.value)}
 									/>
-									<button
-										type="submit"
-										className="btn btn-primary btn-block mt-3"
-									>
-										Update
-									</button>
+									<div className="text-center ml-auto d-flex justify-content-center">
+										<button
+											type="submit"
+											className="btn btn-success mt-3 m-auto"
+										>
+											Update
+										</button>
+									</div>
 								</form>
 							</>
 						)}

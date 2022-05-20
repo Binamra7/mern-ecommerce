@@ -69,7 +69,7 @@ function Review({ product }) {
 					}}
 					placeholder="Add your comment"
 				/>
-				<button onClick={reviewHandler} className="btn btn-primary mt-3">
+				<button onClick={reviewHandler} className="btn mt-3 submit-review-btn">
 					Submit Review
 				</button>
 				<hr />

@@ -15,12 +15,13 @@ function OrdersList() {
 
 	return (
 		<div>
-			<h2>Orders List</h2>
+			<h2 className="text-center mb-3">Orders List</h2>
 			{loading && <Loader />}
 			{error && <Error error="Cannot load orders list" />}
 			<table className="table table-bordered">
 				<thead>
 					<tr>
+						<th>S.N</th>
 						<th>Order ID</th>
 						<th>Username</th>
 						<th>Email</th>
@@ -31,19 +32,21 @@ function OrdersList() {
 				</thead>
 				<tbody>
 					{orders &&
-						orders.map((order) => {
+						orders.map((order, i) => {
 							return (
 								<tr
+									className="cursor-pointer"
 									onClick={() => {
 										window.location.href = `/orderinfo/${order._id}`;
 									}}
 									key={order._id}
 								>
+									<td>{i + 1}</td>
 									<td>{order._id}</td>
 									<td>{order.name}</td>
 									<td>{order.email}</td>
 									<td>{order.orderAmount}</td>
-									<td>{order.createdAt}</td>
+									<td>{order.createdAt.substr(0, 10)}</td>
 									<td>{order.transactionId}</td>
 									{/* <td>
 										<i

@@ -56,7 +56,7 @@ const CartScreen = () => {
 											</td>
 											<td>{item.quantity * item.price}</td>
 											<i
-												className="fa fa-trash"
+												className="fa fa-trash text-danger"
 												onClick={() =>
 													// dispatch({ type: "DELETE_FROM_CART", payload: item })
 													dispatch(deleteFromCart(item))

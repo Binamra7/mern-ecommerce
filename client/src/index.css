@@ -3,16 +3,19 @@
 	font-family: "Barlow", sans-serif;
 	font-weight: bold !important;
 	font-size: 18px !important;
-	/* font-style: 'Borlow', sans-serif !important; */
+	/* padding:0 !important;
+	margin:0 !important; */
+	/* overflow-x: hidden; */
+}
+input,
+select,
+textarea {
+	font-weight: lighter !important;
 }
 
 body {
-	/* padding:10px; */
 	margin: 0;
 	font-family: "Lato", sans-serif;
-	/* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -78,7 +81,10 @@ h3 {
 	font-size: 16px !important;
 }
 .admin {
-	background-color: aquamarine;
+	background-color: rgb(200, 231, 220) !important;
+	border-radius: 10px !important;
+	display: flex !important;
+	justify-content: space-around !important;
 }
 .admin li {
 	list-style-type: none !important;
@@ -86,10 +92,10 @@ h3 {
 	margin-left: 20px !important;
 }
 td {
-	text-align: left !important;	
+	text-align: left !important;
 	font-weight: lighter !important;
 }
-p{
+p {
 	font-weight: lighter !important;
 }
 .price {
@@ -97,7 +103,17 @@ p{
 	font-style: italic !important;
 	font-size: 18px !important;
 }
-.login-btn,.register-btn {
+.login-btn,
+.register-btn {
 	display: flex !important;
 	justify-content: center !important;
+}
+.submit-review-btn {
+	background-color: #f57224 !important;
+	color: white !important;
+	font-weight: lighter !important;
+}
+
+.cursor-pointer {
+	cursor: pointer !important;
 }
