@@ -16,12 +16,13 @@ const CartScreen = () => {
 
 	return (
 		<div>
-			<div className="row mt-3 justify-content-center">
+			<div className="row justify-content-center">
 				<div className="col-md-8 card text-center">
-					<h1 className="text-center m-5">My Cart</h1>
-					<table className="table table-bordered">
+					<h2 className="text-center my-2">My Cart</h2>
+					<table className="table table-striped">
 						<thead>
 							<tr>
+								<th>S.N</th>
 								<th>Name</th>
 								<th>Price</th>
 								<th>Quantity</th>
@@ -30,14 +31,18 @@ const CartScreen = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{cartItems.map((item) => {
+							{cartItems.map((item, i) => {
 								return (
 									<>
 										<tr>
+											<td>{i + 1}</td>
 											<td>{item.name}</td>
-											<td>{item.price}</td>
+											<td>
+												<i>{formatPrice(item.price)}</i>
+											</td>
 											<td>
 												<select
+													// style={{ height: "100%" }}
 													value={item.quantity}
 													onChange={(e) => {
 														dispatch(addToCart(item, e.target.value));
@@ -54,7 +59,9 @@ const CartScreen = () => {
 													)}
 												</select>
 											</td>
-											<td>{item.quantity * item.price}</td>
+											<td>
+												<i>{formatPrice(item.quantity * item.price)}</i>
+											</td>
 											<i
 												className="fa fa-trash text-danger"
 												onClick={() =>

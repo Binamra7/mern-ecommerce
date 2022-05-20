@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrdersByUserId } from "../actions/orderActions";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
-
+import { formatPrice } from "../helpers/FormatPrice";
 function Orders() {
 	const orderstate = useSelector((state) => state.getOrdersByUserIdReducer);
 	const { orders, loading, error } = orderstate;
@@ -17,12 +17,13 @@ function Orders() {
 	}, [dispatch]);
 	return (
 		<div>
-			<div className="row justify-content-center mt-5">
-				<div className="col-md-8">
-					<h2 className="text-center mb-3">My Order List</h2>
+			<div className="row justify-content-center">
+				<div className="col-md-9">
+					<h2 className="text-center my-2">My Order List</h2>
 					<table className="table table-striped">
 						<thead>
 							<tr>
+								<th>S.N</th>
 								<th>Order ID</th>
 								<th>Amount</th>
 								<th>Date</th>
@@ -43,8 +44,11 @@ function Orders() {
 												(window.location = `/orderinfo/${order._id}`)
 											}
 										>
+											<td>{i + 1}</td>
 											<td>{order._id}</td>
-											<td>{order.orderAmount}</td>
+											<td>
+												<i>{formatPrice(order.orderAmount)}</i>
+											</td>
 											<td>{order.createdAt.substring(0, 10)}</td>
 											<td>{order.transactionId}</td>
 											<td>

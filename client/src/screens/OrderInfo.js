@@ -29,7 +29,7 @@ function OrderInfo() {
 							{order.orderItems.map((item) => (
 								<div className="orderitem" key={item.id}>
 									<img
-										className="img img-fluid img-thumbnail"
+										className="img img-fluid small-img"
 										src={item.image}
 										alt="product"
 									/>

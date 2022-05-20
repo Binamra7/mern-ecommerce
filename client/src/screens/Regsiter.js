@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerNewUser } from "../actions/userActions";
@@ -7,6 +7,13 @@ import Loader from "../components/Loader";
 import Success from "../components/Success";
 
 const Register = () => {
+	useEffect(() => {
+		if (localStorage.getItem("currentUser")) {
+			window.location.href = "/";
+		}
+		window.document.title = "SleekStore | Register";
+	}, []);
+
 	const dispatch = useDispatch();
 	const registerReducerState = useSelector(
 		(state) => state.registerNewUserReducer

@@ -27,6 +27,7 @@ const Login = () => {
 		if (localStorage.getItem("currentUser")) {
 			window.location.href = "/";
 		}
+		window.document.title = "SleekStore | Login";
 	}, []);
 
 	return (

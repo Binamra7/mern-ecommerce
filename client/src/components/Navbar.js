@@ -15,8 +15,13 @@ export default function Navbar() {
 				style={{ backgroundColor: "#f8f8ff !important" }}
 				className="navbar navbar-expand-lg p-4"
 			>
-				<a className="navbar-brand" href="/" style={{ marginLeft: "10%" }}>
-					<h2>SleekShops</h2>
+				<a
+					className="navbar-brand d-flex align-items-baseline"
+					href="/"
+					style={{ marginLeft: "10%" }}
+				>
+					<h2>SleekStore &nbsp;</h2>
+					{/* <i className="fa fa-shopping-bag" aria-hidden="true"></i> */}
 				</a>
 				<button
 					className="navbar-toggler"
@@ -58,7 +63,7 @@ export default function Navbar() {
 										Profile
 									</a>
 									<a className="dropdown-item" href="/orders">
-										Orders
+										My Orders
 									</a>
 									<button
 										onClick={() => {

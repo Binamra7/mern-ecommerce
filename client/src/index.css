@@ -5,7 +5,6 @@
 	font-size: 18px !important;
 	/* padding:0 !important;
 	margin:0 !important; */
-	/* overflow-x: hidden; */
 }
 input,
 select,
@@ -14,6 +13,7 @@ textarea {
 }
 
 body {
+	overflow-x: hidden;
 	margin: 0;
 	font-family: "Lato", sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -33,6 +33,11 @@ code {
 
 .navbar-brand {
 	color: rgb(0, 0, 0) !important;
+}
+.navbar-brand:hover {
+	color: rgb(69, 71, 71) !important;
+	transition: 0.2s ease-in-out;
+	transform: scale(1.1);
 }
 .btn-dark {
 	color: black !important;
@@ -57,6 +62,12 @@ h2 {
 .big-img {
 	height: 300px !important;
 }
+.small-img {
+	height: 100px !important;
+	image-rendering: auto !important;
+	image-rendering: crisp-edges !important;
+}
+
 p {
 	text-align: left !important;
 }
@@ -117,3 +128,12 @@ p {
 .cursor-pointer {
 	cursor: pointer !important;
 }
+/* .product-box {
+	position: relative;
+	padding-bottom: 20px;
+}
+.stars {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+} */

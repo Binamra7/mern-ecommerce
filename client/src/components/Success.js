@@ -3,7 +3,7 @@ import React from "react";
 const Success = ({ success }) => {
 	return (
 		<div
-			className="alert alert-success mt-5 text-center ml-auto"
+			className="alert alert-success mt-3 text-center ml-auto"
 			style={{
 				width: "100%",
 				display: "flex",

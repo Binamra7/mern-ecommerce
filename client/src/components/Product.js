@@ -7,13 +7,13 @@ import { formatPrice } from "../helpers/FormatPrice";
 
 const Product = ({ product }) => {
 	return (
-		<div>
+		<div className="product-box">
 			<Link
 				style={{ textDecoration: "none" }}
 				to={`product/${product._id}`}
-				className="text-left d-flex justify-content-around align-items-start flex-column"
+				className="text-left "
 			>
-				{/* <div className="text-left"> */}
+				{/* <div className="product-box"> */}
 				<div className="text-center">
 					<img src={product.image} className="img-fluid" alt="Product" />
 				</div>
@@ -28,7 +28,6 @@ const Product = ({ product }) => {
 							style={{ width: "30px", color: "black" }}
 							alt="stars empty"
 							src={EmptyStar}
-							// src="http://dreyescat.github.io/react-rating/assets/images/star-empty.png"
 							className="icon"
 						/>
 					}
@@ -37,7 +36,6 @@ const Product = ({ product }) => {
 							style={{ width: "30px" }}
 							alt="stars full"
 							src={FullStar}
-							// src="http://dreyescat.github.io/react-rating/assets/images/star-full.png"
 							className="icon"
 						/>
 					}

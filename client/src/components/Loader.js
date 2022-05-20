@@ -2,7 +2,7 @@ import React from "react";
 
 const Loader = () => {
 	return (
-		<div className="div mt-5">
+		<div className="div mt-3">
 			<div
 				className="spinner-border mt-5"
 				role="status"
