@@ -42,8 +42,9 @@ export default function Filter() {
 					>
 						<option value="all">All</option>
 						<option value="fashion">Fashion</option>
-						<option value="games">Games</option>
-						<option value="mobiles">Mobiles</option>
+						<option value="gaming">Gaming</option>
+						<option value="mobiles">Mobile Phones</option>
+						<option value="laptop">Laptops</option>
 					</select>
 				</div>
 				<div className="col-md-2 mt-2">

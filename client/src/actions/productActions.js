@@ -46,7 +46,11 @@ export const filterProducts = (searchKey, sort, category) => (dispatch) => {
 
 			if (searchKey) {
 				filteredProducts = res.data.filter((product) => {
-					return product.name.toLowerCase().includes(searchKey);
+					return (
+						product.description.toLowerCase().includes(searchKey) ||
+						product.name.toLowerCase().includes(searchKey) ||
+						product.category.toLowerCase().includes(searchKey)
+					);
 				});
 			}
 			if (sort !== "popular") {
@@ -62,7 +66,10 @@ export const filterProducts = (searchKey, sort, category) => (dispatch) => {
 			}
 			if (category !== "all") {
 				filteredProducts = res.data.filter((product) => {
-					return product.category.toLowerCase().includes(category);
+					return (
+						product.category.toLowerCase().includes(category) ||
+						product.description.toLowerCase().includes(category)
+					);
 				});
 			}
 			dispatch({ type: "PRODUCTS_FETCHED", payload: filteredProducts });
