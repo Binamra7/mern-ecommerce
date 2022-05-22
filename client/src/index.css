@@ -130,7 +130,7 @@ h3 {
 }
 td{
 	text-align: center !important;
-	font-weight: lighter !important;
+	font-weight: bold !important;
 }
 td:nth-child(2){
 	text-align: left !important;
