@@ -1,0 +1,214 @@
+* {
+	/* border:1px solid red !important; */
+	font-family: "Abel", sans-serif;
+	font-weight: bold !important;
+	font-size: 18px !important;
+	/* padding:0 !important;
+	margin:0 !important; */
+}
+
+.footer {
+	margin-top: 150px !important;
+	width:101% !important;
+	position:absolute !important;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+.footer h1 {
+	font-weight: 400 !important;
+}
+input,
+select,
+textarea {
+	font-weight: lighter !important;
+}
+
+body {
+	overflow-x: hidden;
+	margin: 0;
+	padding:0 10px;
+	font-family: "Lato", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: "Lato", sans-serif;
+}
+.navbar {
+	background-color: #f8f8ff !important;
+	color: black !important;
+}
+.nav-link {
+	color: rgb(0, 0, 0) !important;
+}
+
+.navbar-brand {
+	color: rgb(0, 0, 0) !important;
+	transition: 0.2s ease-in-out !important;
+}
+.navbar-brand:hover {
+	color: rgb(69, 71, 71) !important;
+	transition: 0.3s ease-in-out;
+	transform: scale3d(1.05, 1.05, 1);
+}
+.btn-dark {
+	color: black !important;
+}
+
+h1 {
+	font-size: 16px !important;
+	text-align: left !important;
+	color: black !important;
+	text-decoration: none !important;
+}
+
+h2 {
+	font-size: 25px !important;
+	font-weight: bold Im !important;
+}
+
+.img-fluid {
+	height: 200px !important;
+	text-align: center !important;
+}
+.big-img {
+	height: 300px !important;
+}
+.small-img {
+	height: 100% !important;
+	width: 100% !important;
+	max-width: 500px !important;
+	max-height: 300px !important;
+	margin-bottom: 20px !important;
+	object-fit: contain !important;
+	image-rendering: auto !important;
+	image-rendering: crisp-edges !important;
+}
+.logo {
+	height:50px;
+	width:150px;
+}
+
+p {
+	text-align: left !important;
+}
+.btn {
+	width: 200px;
+}
+.btn-dark {
+	background-color: black !important;
+}
+.btn-dark:hover {
+	background-color: rgb(49, 51, 51) !important;
+}
+input,select {
+	box-shadow: none !important;
+	/* margin-top: 10px !important; */
+	border: 1px solid rgb(146, 146, 146) !important;
+}
+input:focus,select:focus{
+	border:1px solid black !important;
+}
+h3 {
+	font-size: 16px !important;
+}
+.orderitem h1 {
+	font-size: 16px !important;
+}
+.admin {
+	background-color: rgb(200, 231, 220) !important;
+	border-radius: 10px !important;
+	display: flex !important;
+	justify-content: space-around !important;
+}
+.admin li {
+	list-style-type: none !important;
+	display: inline !important;
+	margin-left: 20px !important;
+}
+td{
+	text-align: center !important;
+	font-weight: lighter !important;
+}
+td:nth-child(2){
+	text-align: left !important;
+}
+th {
+	text-align:center !important;
+}
+
+
+tr:nth-child(even) {
+	background-color: #d2d8da !important;
+}
+
+p {
+	font-weight: 700 !important;
+}
+.price {
+	color: rgb(0, 34, 129) !important;
+	font-style: italic !important;
+	font-size: 18px !important;
+}
+.login-btn,
+.register-btn {
+	display: flex !important;
+	justify-content: center !important;
+}
+.submit-review-btn {
+	background-color: #f57224 !important;
+	color: white !important;
+	font-weight: lighter !important;
+}
+
+.cursor-pointer {
+	cursor: pointer !important;
+}
+.new-product input,.new-product select {
+	width: 50% !important;
+}
+.new-product form div{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	
+}
+.new-product label, .new-product input,.new-product select {
+	margin:7px 10px !important;
+}
+option{
+	color:black !important;
+}
+
+
+.search-form {
+	display: flex !important;
+	justify-content: space-around !important;
+	align-items: center !important;
+	padding: 0 10% !important;
+	flex-wrap: wrap !important;
+	/* background-color: #f57224; */
+	
+}
+input {
+	margin-top: 10px !important;
+}
+.card {
+	background-color: rgb(255, 255, 255) !important;
+	border:none !important;
+	border-radius: 10px !important;
+}
+
+.discount {
+	font-size: 30px !important;
+}
+.alert-success {
+	background-color: rgb(176, 255, 180) !important;
+}
+.product-card:hover {
+	transition: 0.3s ease-in-out !important;
+	transform: scale(1.05);
+	box-shadow: 2px 2px 15px 3px rgb(179, 179, 179) !important;
+}
