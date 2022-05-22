@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongo_URI =
-	process.env.MONGODB_URI ||
-	"mongodb+srv://Binamra:binamra7@cluster0.hc11s.mongodb.net/mern-ecommerce";
+const mongo_URI = process.env.MONGODB_URI;
 
 mongoose.connect(mongo_URI, {
 	useNewUrlParser: true,
