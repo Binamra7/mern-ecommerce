@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
-let mongo_URI = "";
-mongo_URI += process.env.MONGO_URI;
+const mongo_URI =
+	process.env.MONGODB_URI ||
+	"mongodb+srv://Binamra:binamra7@cluster0.hc11s.mongodb.net/mern-ecommerce";
 
 mongoose.connect(mongo_URI, {
 	useNewUrlParser: true,
@@ -15,7 +16,7 @@ dbConnect.on("error", () => {
 });
 
 dbConnect.on("connected", () => {
-	console.log("connected to db");
+	console.log("Connected to mongoDB");
 });
 
 module.exports = dbConnect;
