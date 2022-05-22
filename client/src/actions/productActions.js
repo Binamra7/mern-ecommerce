@@ -3,7 +3,7 @@ import axios from "axios";
 const getAllProducts = () => (dispatch) => {
 	dispatch({ type: "PRODUCTS_LOADING" });
 	axios
-		.get("/api/products")
+		.get("https://sleekstore.herokuapp.com/api/products")
 		.then((res) => {
 			dispatch({
 				type: "PRODUCTS_FETCHED",
@@ -22,7 +22,7 @@ const getAllProducts = () => (dispatch) => {
 export const getProductById = (productId) => (dispatch) => {
 	dispatch({ type: "SINGLE_PRODUCT_LOADING" });
 	axios
-		.get(`/api/products/${productId}`)
+		.get(`https://sleekstore.herokuapp.com/api/products/${productId}`)
 		.then((res) => {
 			dispatch({
 				type: "SINGLE_PRODUCT_FETCHED",
@@ -41,7 +41,7 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
 	dispatch({ type: "ADD_PRODUCT_REVIEW_REQUEST" });
 	const currentUser = getState().loginReducer.currentUser;
 	axios
-		.post("/api/products/review", {
+		.post("https://sleekstore.herokuapp.com/api/products/review", {
 			review,
 			productid,
 			currentUser,
@@ -59,7 +59,7 @@ export const filterProducts = (searchKey, sort, category) => (dispatch) => {
 	let filteredProducts = [];
 	dispatch({ type: "PRODUCTS_LOADING" });
 	axios
-		.get("/api/products")
+		.get("https://sleekstore.herokuapp.com/api/products")
 		.then((res) => {
 			filteredProducts = res.data;
 			if (sort !== "popular") {
@@ -109,7 +109,7 @@ export const filterProducts = (searchKey, sort, category) => (dispatch) => {
 export const deleteProduct = (productId) => (dispatch) => {
 	dispatch({ type: "DELETE_PRODUCT_REQUEST" });
 	axios
-		.delete(`/api/products/${productId}`)
+		.delete(`https://sleekstore.herokuapp.com/api/products/${productId}`)
 		.then((res) => {
 			dispatch({ type: "DELETE_PRODUCT_SUCCESS", payload: res.data });
 			alert("Product deleted successfully");
@@ -123,7 +123,7 @@ export const deleteProduct = (productId) => (dispatch) => {
 export const addNewProduct = (product) => (dispatch) => {
 	dispatch({ type: "ADD_NEW_PRODUCT_REQUEST" });
 	axios
-		.post("/api/products", product)
+		.post("https://sleekstore.herokuapp.com/api/products", product)
 		.then((res) => {
 			dispatch({ type: "ADD_NEW_PRODUCT_SUCCESS", payload: res.data });
 			window.location.reload();

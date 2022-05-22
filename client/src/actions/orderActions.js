@@ -22,7 +22,7 @@ export const placeOrder = (token, subTotal) => (dispatch, getState) => {
 
 	dispatch({ type: "PLACE_ORDER_REQUEST" });
 	axios
-		.post("/api/orders/order", {
+		.post("https://sleekstore.herokuapp.com/api/orders/order", {
 			token,
 			subTotal,
 			currentUser,
@@ -42,7 +42,7 @@ export const getOrdersByUserId = () => (dispatch, getState) => {
 	dispatch({ type: "GET_ORDERSBYUSERID_REQUEST" });
 
 	axios
-		.get(`/api/orders/user/${userid}`)
+		.get(`https://sleekstore.herokuapp.com/api/orders/user/${userid}`)
 		.then((res) => {
 			dispatch({ type: "GET_ORDERSBYUSERID_SUCCESS", payload: res.data });
 		})
@@ -54,7 +54,7 @@ export const getOrderById = (orderid) => (dispatch, getState) => {
 	dispatch({ type: "GET_ORDERBYID_REQUEST" });
 
 	axios
-		.get(`/api/orders/${orderid}`)
+		.get(`https://sleekstore.herokuapp.com/api/orders/${orderid}`)
 		.then((res) => {
 			dispatch({ type: "GET_ORDERBYID_SUCCESS", payload: res.data });
 		})
@@ -67,7 +67,7 @@ export const getAllOrders = () => (dispatch) => {
 	dispatch({ type: "GET_ALL_ORDERS_REQUEST" });
 
 	axios
-		.get("/api/orders")
+		.get("https://sleekstore.herokuapp.com/api/orders")
 		.then((res) => {
 			dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: res.data });
 		})

@@ -2,9 +2,9 @@ import axios from "axios";
 
 export const registerNewUser = (user) => (dispatch) => {
 	dispatch({ type: "USER_REGISTER_REQUEST" });
-	
+
 	axios
-		.post("/api/user/register", user)
+		.post("https://sleekstore.herokuapp.com/api/user/register", user)
 		.then((res) => {
 			dispatch({ type: "USER_REGISTER_SUCCESS" });
 			dispatch(loginUser(user));
@@ -19,7 +19,7 @@ export const loginUser = (user) => (dispatch) => {
 	dispatch({ type: "USER_LOGIN_REQUEST" });
 
 	axios
-		.post("/api/user/login", user)
+		.post("https://sleekstore.herokuapp.com/api/user/login", user)
 		.then((res) => {
 			dispatch({ type: "USER_LOGIN_SUCCESS" });
 			localStorage.setItem("currentUser", JSON.stringify(res.data));
@@ -42,7 +42,7 @@ export const updateUser = (userId, updatedUser) => (dispatch) => {
 	dispatch({ type: "USER_UPDATE_REQUEST" });
 
 	axios
-		.put("/api/user", { updatedUser, userId })
+		.put("https://sleekstore.herokuapp.com/api/user", { updatedUser, userId })
 		.then((res) => {
 			dispatch({ type: "USER_UPDATE_SUCCESS", payload: res.data });
 		})
@@ -56,7 +56,7 @@ export const getAllUsers = () => (dispatch) => {
 	dispatch({ type: "GET_ALL_USERS_REQUEST" });
 
 	axios
-		.get("/api/user/users")
+		.get("https://sleekstore.herokuapp.com/api/user/users")
 		.then((res) => {
 			dispatch({ type: "GET_ALL_USERS_SUCCESS", payload: res.data });
 		})
@@ -70,7 +70,7 @@ export const getUserById = () => (dispatch, getState) => {
 	const userId = getState().loginReducer.currentUser._id;
 	dispatch({ type: "GET_USER_BY_ID_REQUEST" });
 	axios
-		.get(`/api/user/${userId}`)
+		.get(`https://sleekstore.herokuapp.com/api/user/${userId}`)
 		.then((res) => {
 			dispatch({ type: "GET_USER_BY_ID_SUCCESS", payload: res.data });
 			console.log(res.data, typeof res.data);
@@ -85,7 +85,7 @@ export const deleteUser = (userId) => (dispatch) => {
 	dispatch({ type: "DELETE_USER_REQUEST" });
 
 	axios
-		.delete(`/api/user/${userId}`)
+		.delete(`https://sleekstore.herokuapp.com/api/user/${userId}`)
 		.then((res) => {
 			dispatch({ type: "DELETE_USER_SUCCESS", payload: res.data });
 			alert("User deleted successfully");
